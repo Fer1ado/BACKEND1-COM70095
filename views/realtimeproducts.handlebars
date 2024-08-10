@@ -1,0 +1,109 @@
+<div>
+
+<h1>Cargar Nuevo Producto</h1>
+
+<br>
+
+<form id="addForm" >
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label class="form-label" for="title"><h5>Title</h5></label>
+            <input type="text" required name="title">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="description"><h5>Description</h5></label>
+            <input type="text" required name="description">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="category"><h5>Category</h5></label>
+            <input type="text" required name="category">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="price"><h5>Price</h5></label>
+            <input type="number" required name="price">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="thumbnail"><h5>Thumbnail</h5></label>
+            <input type="text" required name="thumbnail">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="stock"><h5>Stock</h5></label>
+            <input type="number" required name="stock">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="code"><h5>Code</h5></label>
+            <input type="text" required name="code">
+        </div>
+        <div class="col-4 mb-3">
+            <label for="status"><h5>status</h5></label>
+            <input type="text" required name="status" value="true" readonly="readonly">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+    </div>
+</form>
+
+<br><br>
+
+
+{{!-- FORMULARIO DE ELIMINACION DE PRODUCTOS --}}
+<h1>Eliminar Producto por ID</h1>
+
+<form id="removeForm" >
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="code">Product ID</label>
+            <input type="text" required name="code">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+    </div>
+</form>
+
+<br><br>
+
+<table id="productsTable" class="table" action="/api/products" method="get">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Thumbnail</th>
+            <th scope="col">Código</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Estado</th>
+    
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.thumbnail}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.status}}</td>
+        {{/each}}
+    </tbody>
+</table>
+
+
+</div>
